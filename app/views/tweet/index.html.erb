@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+    <%# 画面上部の「cosme」帯部分 %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      CosMe
+    </h2>
+    <p class='service-explain'>
+      毎日に、輝きを。
+    </p>
+    <div class='store-btn'>
+    </div>
+  </div>
+  <%# //画面上部の「cosme」帯部分  %>
+
+<div class="contents row">
+  <% @tweet.each do |tweet| %>
+    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+      <p><%= tweet.text %></p>
+      <span class="name">
+        <%= tweet.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
+
+<div class='purchase-btn'>
+  <span class='purchase-btn-text'>口コミ</span>
+  <%# if user_signed_in? && current_user.id %>
+  <%= link_to image_tag('camera.png' , size: '185x50' , class: "tweet-btn-icon"), "#" %>
+  <%# end %>
+</div>
