@@ -27,7 +27,7 @@
 
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>口コミ</span>
-  <%# if user_signed_in? && current_user.id %>
-  <%= link_to image_tag('camera.png' , size: '185x50' , class: "tweet-btn-icon"), "#" %>
-  <%# end %>
+  <% if user_signed_in? && current_user.id %>
+  <%= link_to image_tag('camera.png' , size: '185x50' , class: "purchase-btn-icon"), new_tweet_path %>
+  <% end %>
 </div>

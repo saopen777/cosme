@@ -31,7 +31,7 @@
 
 /* 共通 */
 .indispensable {
-  background: #ea352d;
+  background: #FF6699;
   margin-left: 8px;
   padding: 3px;
   border-radius: 2px;
@@ -182,21 +182,24 @@
 }
 
 .sell-btn {
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: #FF6699;
+  border: 1px solid #FF6699;
   color: #fff;
   width: 100%;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
+  border-radius: 10px;
+  margin-top: 30px;
 }
 
 .back-btn {
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
-  padding: 15px 35%;
+  padding: 15px 42%;
   text-decoration: none;
+  border-radius: 10px;
 }
 
 /* /下部ボタン */
