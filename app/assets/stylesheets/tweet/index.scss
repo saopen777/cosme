@@ -9,6 +9,7 @@ a {
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
+  height: 500px;
   background-image: image-url('cosmetics-2611803_1280.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -243,6 +244,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // height: 20px;
 }
 
 .item-lists>.list {
@@ -251,14 +255,19 @@ a {
   background-color: #FFF;
 }
 
+.item-image {
+  width: 20vw;
+  height: 35vh;
+  margin-right: 3vw;
+}
 
 .item-img-content {
   position: relative;
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 15vh;
+  height: 15vh;
 }
 
 .sold-out {
@@ -309,4 +318,40 @@ a {
   font-size: 2vh;
 }
 
+.article {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #999;
+  height: 300px;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  // flex-direction: column;
+}
+
+.article figure {
+  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.article figure img {
+  min-width: 100px;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text_excerpt {
+  margin-top: 20px;
+}
 /* //商品一覧 */

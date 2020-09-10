@@ -14,17 +14,36 @@
   </div>
   <%# //画面上部の「cosme」帯部分  %>
 
-<div class="contents row">
-  <% @tweet.each do |tweet| %>
-    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-      <p><%= tweet.text %></p>
-      <span class="name">
-        <%= tweet.name %>
-      </span>
-    </div>
-  <% end %>
-</div>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+      <% @tweet.each do |tweet| %>
+        <li class='list'>
+          <%= link_to tweet_path(tweet.id) do %>
+            <div class= "article">
+                <div class='item-img-content'>
+                <%= image_tag tweet.image, class: 'item-image' if tweet.image.attached? %>
+                </div>
+            <div class="text_content">
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <h2><%= tweet.title %></h2>
+                    <p class="text_excerpt">
+                    <%=safe_join(tweet.text.split("\n"),tag(:br))%></p>
+                </h3>
+              </div>
+            </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
 
+
+
+
+
+
+    </ul>
+  </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>口コミ</span>
   <% if user_signed_in? && current_user.id %>
