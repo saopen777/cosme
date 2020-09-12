@@ -52,6 +52,7 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
+  justify-content: left;
 }
 
 .lists-left {
@@ -84,6 +85,7 @@
   justify-content: flex-start;
   color: #333333;
   font-weight: bold;
+  justify-content: left;
 
 }
 
@@ -91,6 +93,7 @@
 .logout {
   text-decoration: none;
   color: #333333;
+  
 }
 
 .login {
@@ -98,6 +101,7 @@
   line-height: 32px;
   margin-right: 3vw;
   color: #333333;
+  justify-content: left;
 }
 
 .sign-up {

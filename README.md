@@ -68,7 +68,7 @@ https://cosme-28321.herokuapp.com/
 
 # ER図
 
-https://gyazo.com/422c5a38d83fd786003c007e8658df7b
+![C12F670C-36EE-4F06-B694-5C03200D8989](https://user-images.githubusercontent.com/68687291/92988221-66b47c00-f504-11ea-94aa-dc27cb75ad22.jpeg)
 
 
 # テーブル設計

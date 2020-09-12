@@ -145,6 +145,7 @@
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
+  align-items: center;
 }
 
 .comment-text {
@@ -172,6 +173,7 @@
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
+  margin-top: 2vh;
 }
 
 .comment-flag {
