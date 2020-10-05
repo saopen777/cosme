@@ -1,10 +1,67 @@
-<div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-        <br>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+          <%= link_to tweet_path(@tweet.id) do %>
+            <div class= "article">
+                <div class='item-img-content'>
+                  <%= image_tag @tweet.image ,class:"item-box-img" %>
+                </div>
+              <div class="text_content">
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <h2><%= @tweet.title %></h2>
+                      <p class="text_excerpt">
+                      <%=safe_join(@tweet.text.split("\n"),tag(:br))%></p>
+                  </h3>
+                </div>
+
+                <div class="post-name">
+                    投稿者  <%= @tweet.user.nickname %>
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+    </ul>
+  </div>
+
+
+<div class="contents row">
+  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '編集', edit_tweet_path(@tweet.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', tweet_path(@tweet.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div class="container">
+    <% if current_user %>
+      <%= form_with(model: @comments, local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "comment", rows: "3" %>
+          <%# <div class="comment-btn"> %>
+            <%= form.submit "SEND" %>
+          <%# </div> %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
