@@ -3,16 +3,7 @@ class TweetController < ApplicationController
   before_action :authenticate_with_http_digest
 
   def index
-    @tweet = Tweet.all.order("created_at DESC")
-  end
-
-  def show
-    @comment = Comment.new
-    @comment = @tweet.comments.includes(:user)
-  end
-
-  def new
-    @tweet = Tweet.new
+    @tweet = Tweet.includes(:user).order("created_at DESC")
   end
 
   def create
@@ -25,6 +16,17 @@ class TweetController < ApplicationController
     end
   end
 
+
+  def show
+    @tweet = Tweet.find(params[:id])
+    @comment = Comment.new
+    @comment = @tweet.comments.includes(:user)
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:title, :text, :content, :image).merge(user_id: current_user.id)
@@ -32,6 +34,12 @@ class TweetController < ApplicationController
 
   def set_tweet
     @tweet = Tweet.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end
